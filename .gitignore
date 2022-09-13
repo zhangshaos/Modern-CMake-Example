@@ -2,6 +2,8 @@
 .vs
 .vscode
 
-build/
-bin/
-lib/
+build
+bin
+lib
+
+cmake-build*

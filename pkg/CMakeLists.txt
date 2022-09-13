@@ -30,6 +30,12 @@ install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}_Export
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
+if(MSVC) # Install debug symbols for MSVC builds
+    install(FILES $<TARGET_PDB_FILE:${PROJECT_NAME}>
+            DESTINATION ${CMAKE_INSTALL_BINDIR}
+            OPTIONAL)
+endif()
+
 install(EXPORT ${PROJECT_NAME}_Export
         DESTINATION cmake
         NAMESPACE hello::)
